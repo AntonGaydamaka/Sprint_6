@@ -31,7 +31,7 @@ class OrderFormPage(BasePage):
         self.set_text_to_elm(TestOrderFormPageLocators.METRO_STATION_FIELD, station)
         self.click_on_element(TestOrderFormPageLocators.SELECTED_STATION)
         return self
-
+    @allure.step('Проверка, что поле "Метро" содержит значение')
     def check_metro_value(self, station):
         field = self.find_element_with_wait(TestOrderFormPageLocators.METRO_STATION_FIELD)
         expected_value = station
@@ -65,11 +65,12 @@ class OrderFormPage(BasePage):
         self.find_element_with_wait(TestOrderFormPageLocators.RENTAL_DURATION_LIST)
         self.click_on_element(TestOrderFormPageLocators.DROPDOWN_ITEM_RENTAL_PERIOD)
 
-
+    @allure.step('Выбрать цвет')
     def set_color_field(self):
         self.click_on_element(TestOrderFormPageLocators.CHECKBOX_GREY)
         return self
-
+    
+    @allure.step('Заполнить поле "Комментарий"')
     def set_comment_field(self, comment):
         self.set_text_to_elm(TestOrderFormPageLocators.COMMENT_FIELD, comment)
         return self

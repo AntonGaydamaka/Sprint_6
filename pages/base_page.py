@@ -17,6 +17,7 @@ class BasePage:
         element = self.find_element_with_wait(locator)
         self.driver.execute_script('arguments[0].scrollIntoView();', element)
 
+    @allure.step('Ожидание загрузки URL')
     def wait_url_to_be(self, url):
         return WebDriverWait(self.driver, 6).until((expected_conditions.url_to_be(url)))
 

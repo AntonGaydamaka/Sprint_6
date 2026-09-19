@@ -1,6 +1,5 @@
 import allure
 import pytest
-from locators.order_form_page_locators import TestOrderFormPageLocators
 from test_data import user_1, user_2
 
 
@@ -14,7 +13,7 @@ class TestOrderForm:
         order_page.personal_information_input(name, last_name, address, station, number)
         order_page.rental_information_input(comment)
         order_page.click_yes_button_confirmation_pop_up()
-        assert driver.find_element(*TestOrderFormPageLocators.POP_UP_COMPLETE_ORDER).is_displayed()
+        assert order_page.check_displaying_of_complete_order_pop_up()
 
     @allure.title('Проверка флоу позитивного сценария оформления заказа через нижнюю кнопку "Заказать')
     @allure.description('Проверка перехода в форму заказа через нажатие кнопки "Заказать" в теле и успешного оформления заказа')
@@ -24,4 +23,4 @@ class TestOrderForm:
         order_page.personal_information_input(name, last_name, address, station, number)
         order_page.rental_information_input(comment)
         order_page.click_yes_button_confirmation_pop_up()
-        assert driver.find_element(*TestOrderFormPageLocators.POP_UP_COMPLETE_ORDER).is_displayed()
+        assert order_page.check_displaying_of_complete_order_pop_up()
